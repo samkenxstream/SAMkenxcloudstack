@@ -154,11 +154,11 @@ export default {
       docHelp: 'adminguide/projects.html#suspending-or-deleting-a-project',
       dataView: true,
       show: (record, store) => {
-        return (['Admin', 'DomainAdmin'].includes(store.userInfo.roletype)) || record.isCurrentUserProjectAdmin
+        return (['Admin', 'DomainAdmin'].includes(store.userInfo.roletype) || record.isCurrentUserProjectAdmin) && record.id !== store.project.id
       },
       groupAction: true,
       popup: true,
-      groupMap: (selection) => { return selection.map(x => { return { id: x } }) },
+      groupMap: (selection, values) => { return selection.map(x => { return { id: x, cleanup: values.cleanup || null } }) },
       args: (record, store) => {
         const fields = []
         if (store.apis.deleteProject.params.filter(x => x.name === 'cleanup').length > 0) {

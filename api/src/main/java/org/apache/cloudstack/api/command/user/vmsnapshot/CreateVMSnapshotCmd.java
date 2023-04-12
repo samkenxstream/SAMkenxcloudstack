@@ -43,7 +43,6 @@ import com.cloud.vm.snapshot.VMSnapshot;
 public class CreateVMSnapshotCmd extends BaseAsyncCreateCmd {
 
     public static final Logger s_logger = Logger.getLogger(CreateVMSnapshotCmd.class.getName());
-    private static final String s_name = "createvmsnapshotresponse";
 
     @ACL(accessType = AccessType.OperateEntry)
     @Parameter(name = ApiConstants.VIRTUAL_MACHINE_ID, type = CommandType.UUID, required = true, entityType = UserVmResponse.class, description = "The ID of the vm")
@@ -100,6 +99,7 @@ public class CreateVMSnapshotCmd extends BaseAsyncCreateCmd {
 
         if (vmsnapshot != null) {
             setEntityId(vmsnapshot.getId());
+            setEntityUuid(vmsnapshot.getUuid());
         } else {
             throw new ServerApiException(ApiErrorCode.INTERNAL_ERROR, "Failed to create vm snapshot");
         }
@@ -126,11 +126,6 @@ public class CreateVMSnapshotCmd extends BaseAsyncCreateCmd {
         } else {
             throw new ServerApiException(ApiErrorCode.INTERNAL_ERROR, "Failed to create vm snapshot due to an internal error creating snapshot for vm " + getVmId());
         }
-    }
-
-    @Override
-    public String getCommandName() {
-        return s_name;
     }
 
     @Override
