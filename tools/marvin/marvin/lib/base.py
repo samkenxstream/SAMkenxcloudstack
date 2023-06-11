@@ -108,6 +108,8 @@ class Role:
             cmd.roleid = services["roleid"]
         if "description" in services:
             cmd.description = services["description"]
+        if "ispublic" in services:
+            cmd.ispublic = services["ispublic"]
 
         return Role(apiclient.createRole(cmd).__dict__)
 
@@ -122,6 +124,8 @@ class Role:
             cmd.description = services["description"]
         if "forced" in services:
             cmd.type = services["forced"]
+        if "ispublic" in services:
+            cmd.ispublic = services["ispublic"]
 
         return Role(apiclient.importRole(cmd).__dict__)
 
@@ -3481,7 +3485,8 @@ class Network:
                networkofferingid=None, projectid=None,
                subdomainaccess=None, zoneid=None,
                gateway=None, netmask=None, vpcid=None, aclid=None, vlan=None,
-               externalid=None, bypassvlanoverlapcheck=None, associatednetworkid=None, publicmtu=None, privatemtu=None):
+               externalid=None, bypassvlanoverlapcheck=None, associatednetworkid=None, publicmtu=None, privatemtu=None,
+               sourcenatipaddress=None):
         """Create Network for account"""
         cmd = createNetwork.createNetworkCmd()
         cmd.name = services["name"]
@@ -3563,6 +3568,8 @@ class Network:
             cmd.publicmtu = publicmtu
         if privatemtu:
             cmd.privatemtu = privatemtu
+        if sourcenatipaddress:
+            cmd.sourcenatipaddress = sourcenatipaddress
         return Network(apiclient.createNetwork(cmd).__dict__)
 
     def delete(self, apiclient):

@@ -299,6 +299,8 @@ public class ApiConstants {
     public static final String NIC = "nic";
     public static final String NIC_NETWORK_LIST = "nicnetworklist";
     public static final String NIC_IP_ADDRESS_LIST = "nicipaddresslist";
+    public static final String NIC_MULTIQUEUE_NUMBER = "nicmultiqueuenumber";
+    public static final String NIC_PACKED_VIRTQUEUES_ENABLED = "nicpackedvirtqueuesenabled";
     public static final String NEW_START_IP = "newstartip";
     public static final String NEW_END_IP = "newendip";
     public static final String NUM_RETRIES = "numretries";
@@ -458,6 +460,7 @@ public class ApiConstants {
     public static final String VIRTUAL_MACHINE_NAME = "virtualmachinename";
     public static final String VIRTUAL_MACHINE_ID_IP = "vmidipmap";
     public static final String VIRTUAL_MACHINE_COUNT = "virtualmachinecount";
+    public static final String VIRTUAL_MACHINE_TYPE = "virtualmachinetype";
     public static final String VIRTUAL_MACHINES = "virtualmachines";
     public static final String USAGE_ID = "usageid";
     public static final String USAGE_TYPE = "usagetype";
@@ -1028,6 +1031,10 @@ public class ApiConstants {
     public static final String MTU = "mtu";
     public static final String AUTO_ENABLE_KVM_HOST = "autoenablekvmhost";
     public static final String LIST_APIS = "listApis";
+
+    public static final String SOURCE_NAT_IP = "sourcenatipaddress";
+    public static final String SOURCE_NAT_IP_ID = "sourcenatipaddressid";
+    public static final String HAS_RULES = "hasrules";
 
     /**
      * This enum specifies IO Drivers, each option controls specific policies on I/O.
